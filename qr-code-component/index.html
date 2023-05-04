@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | QR code component</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --light-gray: hsl(212, 45%, 89%);
+      --grayish-blue: hsl(220, 15%, 55%);
+      --dark-blue: hsl(218, 44%, 22%);
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      background-color: var(--light-gray);
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      height: 100dvh;
+    }
+
+    .component {
+      background-color: hsl(0, 0%, 100%);
+      border-radius: 1.5em;
+      padding: 1em;
+      max-width: 320px;
+      box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      color: var(--grayish-blue)
+    }
+
+    .component h2 {
+      color: var(--dark-blue);
+      margin-bottom: 1em;
+    }
+
+
+    .component__text {
+      margin: 1em 0.4em 2em;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="component">
+    <img src="images/image-qr-code.png" alt="QR code">
+    <div class="component__text">
+      <h2>Improve your front-end skills by building projects</h2>
+      <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+    </div>
+  </div>
+</body>
+
+</html>
