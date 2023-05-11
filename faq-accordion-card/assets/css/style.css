@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root {
+    --default-font: 'Kumbh Sans', sans-serif;
+    --clr-card-title-hsl: hsl(238, 29%, 16%);
+    --clr-card-arrow-hsl: hsl(14, 88%, 65%);
+    --clr-card-bg-grad-top-hsl: hsl(273, 75%, 66%);
+    --clr-card-bg-grad-bottom-hsl: hsl(240, 73%, 65%);
+    --clr-card-item-title-hsl: hsl(237, 12%, 33%);
+    --clr-card-item-text-hsl: hsl(240, 6%, 50%);
+    --clr-divider-hsl: hsl(240, 5%, 91%);
+}
+
+html {
+    background-color: var(--clr-card-bg-grad-bottom-hsl);
+    font-size: 12px;
+}
+
+body {
+    font-family: var(--default-font);
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: linear-gradient(
+        var(--clr-card-bg-grad-top-hsl),
+        var(--clr-card-bg-grad-bottom-hsl)
+    );
+    background-repeat: no-repeat;
+    place-content: center;
+}
+
+.grid-group {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid-group[data-spacing='large'] {
+    gap: 2.3rem;
+}
+
+.grid-group[data-spacing='small'] {
+    gap: 1.2rem;
+}
+
+.card {
+    place-content: start;
+    margin-top: 5.3rem;
+    background-color: white;
+    border-radius: 1.7rem;
+    min-height: 537px;
+    max-height: 537px;
+    box-shadow: 0px 20px 30px 0px hsla(0, 0%, 0%, 0.25);
+}
+
+.card__header {
+    position: relative;
+}
+
+.header__bg {
+    height: 104px;
+    background-image: url(../../assets/images/bg-pattern-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header__illustration {
+    width: 240px;
+    height: 204px;
+    background-image: url(../../assets/images/illustration-woman-online-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: -10rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header__box {
+    display: none;
+    background-image: url(../../assets/images/illustration-box-desktop.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card__content {
+    max-width: 330px;
+    padding: 0rem 2.2rem 4rem;
+}
+
+.card__title {
+    color: var(--clr-card-title-hsl);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+
+.accordion__item-title {
+    color: var(--clr-card-item-title-hsl);
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion__item-text {
+    color: var(--clr-card-item-text-hsl);
+    line-height: 1.4rem;
+}
+
+.card__arrow-icon {
+    color: var(--clr-card-arrow-hsl);
+}
+
+.accordion__item {
+    padding-bottom: 1.5rem;
+    box-shadow: 0px 1px 0px var(--clr-divider-hsl);
+}
+
+.accordion__transition {
+    transition: max-height 600ms ease-in-out;
+}
+
+.accordion__item-title:hover,
+.accordion__item-title:focus-visible {
+    cursor: pointer;
+    color: var(--clr-card-arrow-hsl);
+}
+
+.accordion__item[data-active] {
+    max-height: 10rem;
+    overflow: hidden;
+}
+
+.accordion__item:not([data-active]) {
+    max-height: 2.7rem;
+    overflow: hidden;
+}
+
+.accordion__item[data-active] .accordion__item-title {
+    color: var(--clr-card-title-hsl);
+    font-weight: 700;
+}
+
+.accordion__item[data-active] .card__arrow-icon {
+    transform: rotateZ(180deg);
+}
+
+@media screen and (min-width: 950px) {
+    .grid-group[data-spacing='large'] {
+        gap: 3rem;
+    }
+
+    .card {
+        margin-top: 0;
+        max-width: 922px;
+        min-height: 508px;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1.3fr;
+    }
+
+    .card__header {
+        max-width: 100%;
+    }
+
+    .header__bg {
+        background-image: url(../../assets/images/bg-pattern-desktop.svg);
+        background-position: bottom -155px right;
+        background-size: 260%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .header__illustration {
+        background-image: url(../../assets/images/illustration-woman-online-desktop.svg);
+        background-position: bottom 80px right;
+        background-size: 122%;
+        width: 100%;
+        height: 100%;
+        top: revert;
+        left: revert;
+        transform: revert;
+    }
+
+    .header__box {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -230px;
+        background-image: url(../../assets/images/illustration-box-desktop.svg);
+        background-size: 50%;
+        background-position: center 205px;
+    }
+
+    .card__content {
+        place-content: start;
+        padding: 5rem 8rem 0rem 5rem;
+        max-width: 100%;
+        min-height: 508px;
+    }
+
+    .card__title {
+        text-align: left;
+        line-height: revert;
+    }
+
+    .card__arrow-icon {
+        margin-right: 1.3rem;
+    }
+}
