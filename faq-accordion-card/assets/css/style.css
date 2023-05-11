@@ -106,7 +106,6 @@ body {
     font-weight: 700;
 }
 
-
 .accordion__item-title {
     color: var(--clr-card-item-title-hsl);
     font-size: 1.1rem;
@@ -166,6 +165,7 @@ body {
 
     .card {
         margin-top: 0;
+        margin-left: 10rem;
         max-width: 922px;
         min-height: 508px;
         grid-template-rows: 1fr;
@@ -201,7 +201,7 @@ body {
         height: 100%;
         position: absolute;
         top: 0;
-        left: -230px;
+        left: -190px;
         background-image: url(../../assets/images/illustration-box-desktop.svg);
         background-size: 50%;
         background-position: center 205px;
