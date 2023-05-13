@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    font-size: inherit;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family-default: 'Red Hat Display', sans-serif;
+
+    --fw-medium: 500;
+    --fw-bold: 700;
+    --fw-black: 900;
+
+    --fs-500: 1rem;
+    --fs-900: 1.7rem;
+
+    --clr-primary-bg: hsl(225, 100%, 94%);
+    --clr-secondary-500: hsl(245, 75%, 52%);
+    --clr-secondary-hsl-500: 245, 75%, 52%;
+
+    --clr-neutral-bg: hsl(225, 100%, 98%);
+    --clr-neutral-500: hsl(224, 23%, 55%);
+    --clr-neutral-hls-500: 224, 23%, 55%;
+    --clr-neutral-900: hsl(223, 47%, 23%);
+
+    --padding: 1.5rem;
+    --border-radius: 1.3rem;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    font-family: var(--font-family-default);
+    font-size: var(--fs-500);
+    color: var(--clr-neutral-500);
+    line-height: 1.5rem;
+    background-image: url(images/pattern-background-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top -1rem;
+    background-color: var(--clr-primary-bg);
+}
+
+.grid-group {
+    display: grid;
+    gap: 1rem;
+}
+
+.grid-group[data-spacing='large'] {
+    gap: 1.7rem;
+}
+
+.flex-group {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.order-card {
+    background-color: lightgreen;
+    max-width: 21rem;
+    margin-inline: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 1.5rem 1.5rem 0 hsla(var(--clr-secondary-hsl-500), 0.11);
+}
+
+.order-card__header {
+    height: 10rem;
+    background-image: url(images/illustration-hero.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center bottom;
+    background-color: var(--clr-secondary-500);
+}
+
+.order-card__content {
+    padding: calc(var(--padding) * 1.5) var(--padding);
+    text-align: center;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.order-card__heading {
+    color: var(--clr-neutral-900);
+    font-size: var(--fs-900);
+    font-weight: var(--fw-black);
+    line-height: 1rem;
+}
+
+.order-card__text {
+    margin-inline: 0.5rem;
+}
+
+.order-card__plan {
+    background-color: var(--clr-neutral-bg);
+    line-height: 1.4rem;
+    padding: calc(var(--padding) / 1.4);
+    border-radius: calc(var(--border-radius) / 2);
+    justify-content: space-between;
+}
+
+.order-card__pricing,
+.order-card__pricing .order-card__heading {
+    font-size: var(--fs-500);
+}
+
+.order-card__pricing .order-card__heading {
+    font-weight: var(--fw-black);
+    line-height: 1.5rem;
+}
+
+.link {
+    color: hsla(var(--clr-secondary-hsl-500), 1);
+    font-size: calc(var(--fs-500) / 1.2);
+    font-weight: var(--fw-black);
+}
+
+.link:hover,
+.link:active {
+    cursor: pointer;
+    color: hsla(var(--clr-secondary-hsl-500), 0.7);
+}
+
+.button {
+    font-size: calc(var(--fs-500) / 1.1);
+    font-family: inherit;
+    font-weight: var(--fw-bold);
+    border: none;
+    background: none;
+    text-decoration: none;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    cursor: pointer;
+    background-color: hsla(var(--clr-secondary-hsl-500), 0.7);
+}
+
+.btn-primary {
+    color: hsl(0, 0%, 100%);
+    background-color: var(--clr-secondary-500);
+    padding: 1rem;
+    border-radius: 0.7rem;
+    box-shadow: 0 0.5rem 1.5rem 0 hsla(var(--clr-secondary-hsl-500), 0.3);
+}
+
+.btn-link {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-inline: auto;
+    cursor: pointer;
+    color: var(--clr-neutral-500);
+    font-weight: var(--fw-black);
+}
+
+.btn-link:hover,
+.btn-link:active {
+    color: var(--clr-neutral-900);
+}
+
+img,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+        background-image: url(images/pattern-background-desktop.svg);
+        background-position: center top -5rem;
+    }
+
+    .order-card {
+        max-width: 28rem;
+    }
+
+    .order-card__header {
+        height: 13.5rem;
+    }
+
+    .order-card__content {
+        padding: calc(var(--padding) * 2.5) calc(var(--padding) * 2);
+    }
+
+    .order-card__plan {
+        padding: calc(var(--padding) * 1.1) var(--padding);
+    }
+}
