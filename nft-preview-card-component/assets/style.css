@@ -9,6 +9,7 @@
 
     --clr-primary-300: hsl(215, 51%, 70%);
     --clr-primary-500: hsl(178, 100%, 50%);
+    --clr-primary-hsl-500: 178, 100%, 50%;
 
     --clr-neutral-950: hsl(217, 54%, 10%);
     --clr-neutral-900: hsl(217, 54%, 11%);
@@ -16,6 +17,8 @@
     --clr-neutral-700: hsl(215, 32%, 27%);
     --clr-neutral-100: hsl(0, 0%, 100%);
 }
+
+/* resets */
 
 *,
 *::after,
@@ -26,6 +29,36 @@
 * {
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* utility classes */
+
+.flex-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.grid-group {
+    display: grid;
+    gap: 1rem;
+}
+
+[data-spacing="small"] {
+    gap: .5rem;
+}
+
+/* component */
 
 body {
     background-color: var(--clr-neutral-900);
@@ -39,21 +72,6 @@ body {
     font-weight: var(--fw-light);
 }
 
-/* utility classes */
-
-.flex-group {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.grid-group {
-    display: grid;
-    gap: 1rem;
-}
-
-/* component */
-
 .card {
     background-color: var(--clr-neutral-800);
     border-radius: 1rem;
@@ -62,24 +80,29 @@ body {
     margin-inline: 1.5rem;
     max-width: 350px;
     position: relative;
+    isolation: isolate;
 }
 
-.card::after {
+.card::before {
     content: '';
     position: absolute;
     inset: 0;
-    box-shadow: 0 2rem 0 1rem var(--clr-neutral-950);
+    box-shadow: 0 1.8rem 0 1rem var(--clr-neutral-950);
     border-radius: 2rem;
+    z-index: -1;
 }
 
 @media (min-width: 600px) {
     .card {
-        padding: 1.5rem 1.5rem 2rem;
+        padding: 1.5rem 1.5rem 1.7rem;
     }
 }
 
-.card__img {
+.card__header {
     border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
 }
 
 .card__title {
@@ -91,7 +114,7 @@ body {
 
 @media (min-width: 600px) {
     .card__info {
-        padding-bottom: 0.3rem;
+        padding-bottom: 0.2rem;
     }
 }
 
@@ -109,7 +132,6 @@ body {
 .card__price {
     color: var(--clr-primary-500);
     font-weight: var(--fw-bold);
-    gap: 0.5rem;
 }
 
 .card__price::before {
@@ -118,10 +140,6 @@ body {
     height: 18px;
     background-image: url(images/icon-ethereum.svg);
     background-repeat: no-repeat;
-}
-
-.card__time-left {
-    gap: 0.5rem;
 }
 
 .card__time-left::before {
@@ -151,8 +169,19 @@ body {
     font-weight: var(--fw-light);
 }
 
-img,
-svg {
-    display: block;
-    max-width: 100%;
+/* active states */
+
+.card__link--hover:hover {
+    cursor: pointer;
+    color: var(--clr-primary-500);
+}
+
+.card__header:hover::after {
+    content: '';
+    background-color: hsla(var(--clr-primary-hsl-500), .5);
+    background-image: url(images/icon-view.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    inset: 0;
 }
